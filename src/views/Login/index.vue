@@ -49,8 +49,8 @@ export default {
   data () {
     return {
       userInfo: {
-        username: 'llq123123',
-        password: 'llq123123'
+        username: 'wtg106',
+        password: 'wtg971040'
       },
       rules: {
         username: [

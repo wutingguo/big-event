@@ -1,8 +1,13 @@
 import Vue from 'vue'
 import {
   Aside,
+  Breadcrumb,
+  BreadcrumbItem,
   Button,
+  Card,
+  Col,
   Container,
+  Dialog,
   Form,
   FormItem,
   Header,
@@ -14,7 +19,11 @@ import {
   Menu,
   MenuItem,
   Message,
-  Submenu
+  MessageBox,
+  Row,
+  Submenu,
+  Table,
+  TableColumn
 } from 'element-ui'
 
 Vue.use(Button)
@@ -29,9 +38,18 @@ Vue.use(Button)
   .use(Header)
   .use(Submenu)
   .use(Loading.directive)
-
   .use(Main)
   .use(Aside)
+  .use(Card)
+  .use(Breadcrumb)
+  .use(BreadcrumbItem)
+  .use(Row)
+  .use(Col)
+  .use(Table)
+  .use(TableColumn)
+  .use(Dialog)
+// 这里如果使用MessageBox 页面进入就会弹出提示框 !!!!!
 // Loading.service()
 Vue.prototype.$message = Message
+Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$loading = Loading.service

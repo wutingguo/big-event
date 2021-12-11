@@ -11,7 +11,7 @@ const mutations = {
 const actions = {
   async getuserInfo (context) {
     const { data } = await reqGetuserInfo()
-    console.log(data)
+    // console.log(data)
     if (data.code === 0) {
       context.commit('setUserInfo', data.data)
     }
