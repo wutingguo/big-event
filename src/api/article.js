@@ -5,6 +5,7 @@ export const reqGetArticle = () => {
     url: '/my/cate/list'
   })
 }
+// 请求添加文章分类
 export const reqAddArticle = (data) => {
   return http({
     method: 'POST',
@@ -12,10 +13,49 @@ export const reqAddArticle = (data) => {
     data
   })
 }
+// 请求获取对应需要修改文章名字
 export const reqChangeArticle = (id) => {
+  return http({
+    method: 'GET',
+    url: '/my/cate/info',
+    // 这里的params记得加{}他是以对象的形势接受
+    params: { id }
+  })
+}
+// 修改对应id的文章分类
+export const reqCateArticle = (data) => {
   return http({
     method: 'PUT',
     url: '/my/cate/info',
-    params: id
+    data
+  })
+}
+// /my/cate/del
+// 删除对应id的文章分类
+export const reqDelArticle = (id) => {
+  return http({
+    method: 'DELETE',
+    url: '/my/cate/del',
+    params: { id }
+  })
+}
+// /my/article/list
+// 获取文章列表
+export const reqGetArtList = (params) => {
+  return http({
+    method: 'GET',
+    url: '/my/article/list',
+    params
+
+  })
+}
+// /my/article/info
+// 删除文章
+export const reqDelArt = (id) => {
+  return http({
+    method: 'DELETE',
+    url: '/my/article/info',
+    params: { id }
+
   })
 }
