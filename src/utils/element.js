@@ -21,6 +21,7 @@ import {
   Message,
   MessageBox,
   Option,
+  Pagination,
   Row,
   Select,
   Submenu,
@@ -52,6 +53,7 @@ Vue.use(Button)
   .use(Dialog)
   .use(Select)
   .use(Option)
+  .use(Pagination)
 // 这里如果使用MessageBox 页面进入就会弹出提示框 !!!!!
 // Loading.service()
 Vue.prototype.$message = Message

@@ -59,3 +59,8 @@ export const reqDelArt = (id) => {
 
   })
 }
+export const reqLookArt = (id) => http({
+  method: 'GET',
+  url: '/my/article/info',
+  params: { id }
+})
