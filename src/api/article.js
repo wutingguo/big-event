@@ -64,3 +64,9 @@ export const reqLookArt = (id) => http({
   url: '/my/article/info',
   params: { id }
 })
+
+export const reqPublish = (data) => http({
+  method: 'post',
+  url: '/my/article/add',
+  data
+})

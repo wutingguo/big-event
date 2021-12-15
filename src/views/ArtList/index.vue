@@ -30,10 +30,17 @@
         </el-form>
       </el-col>
       <el-col :span="2">
-        <el-button type="primary" size="small"
-          >发表文章</el-button
-        >
+        <el-button type="primary" size="small" @click="Pub">
+          发表文章
+        </el-button>
       </el-col>
+      <el-dialog
+        title="发表文章"
+        :visible.sync="PubdialogVisible"
+       fullscreen
+        >
+          <PubArticle @pubclose="pubclose"></PubArticle>
+      </el-dialog>
     </el-row>
     <el-table :data="lsit" style="width: 100%">
       <el-table-column  label="文章标题">
@@ -84,6 +91,7 @@
 
 <script>
 import LookArt from './components/LookArt.vue'
+import PubArticle from './components/PubArticle.vue'
 import { mapActions, mapState } from 'vuex'
 import { reqDelArt, reqGetArtList, reqLookArt } from '@/api/article'
 export default {
@@ -99,11 +107,13 @@ export default {
       byIdList: null,
       lsit: null,
       total: null,
-      dialogVisible: false
+      dialogVisible: false,
+      PubdialogVisible: false
     }
   },
   components: {
-    LookArt
+    LookArt,
+    PubArticle
   },
   created () {
     this.getArtList()
@@ -149,6 +159,14 @@ export default {
       // 这个函数是页码发生变化后就会执行
       // console.log(data, 111)// 页码,下面的数字,有多少页,点击就会变化
       this.params.pagenum = data
+      this.getArtList()
+    },
+    Pub () {
+      this.PubdialogVisible = true
+    },
+    pubclose () {
+      this.PubdialogVisible = false
+      // this.getArticleList()
       this.getArtList()
     }
 
